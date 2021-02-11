@@ -17,7 +17,7 @@ with open(csv_file_loc, 'r') as fz:
   reader = csv.reader(fz)
   your_list = list(reader)
 filename = 'SQL'
-f = open(filename + '.sql','a')
+f = open(filename + '.sql','w')
 for p in your_list:
     format_str = """INSERT INTO Sites (Title, URL, MetaDescription)
     VALUES ("{Title}", "{URL}", "{MetaDescription}");\n"""
