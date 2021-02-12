@@ -27,17 +27,15 @@ for p in your_list:
 
 f.close()
 
-#sql_file = open('SQL.csv', 'r')
-#new_sql_file = f.open()
-  
-#for sqlcommand in sql_file:
-#    mycursor.execute(sqlcommand)
-#mydb.commit()
+
+with open('SQL.sql') as f:
+    mycursor.execute(f.read())
+    mydb.commit()
 
 
-#print(mycursor.rowcount, "record inserted.")
+print(mycursor.rowcount, "record inserted.")
 
-#if (mydb.is_connected()):
-#           mycursor.close()
-#            mydb.close()
-#           print("MySQL connection is closed")
+if (mydb.is_connected()):
+           mycursor.close()
+           mydb.close()
+           print("MySQL connection is closed")
