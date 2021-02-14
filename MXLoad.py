@@ -34,10 +34,12 @@ for p in your_list:
 
 f.close()
 
+##Insert count
 rowcount = len(open(csv_file_loc).readlines())
-print(rowcount, "record(s) inserted")
-#print(mycursor.rowcount, "record inserted.")
+print(rowcount)
+print("Record(s) inserted")
 
+##Close DB connection
 if (mydb.is_connected()):
            mycursor.close()
            mydb.close()
