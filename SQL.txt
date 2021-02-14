@@ -1,4 +1,0 @@
-INSERT INTO Sites (Title, URL, MetaDescription)
-    VALUES ("LG: Mobile Devices & Home Entertainment & Appliances | LG USA", "https://lg.com", "Make life good. LG electronics and mobile devices feature innovative technology and sleek designs to suit your life and your style.");
-INSERT INTO Sites (Title, URL, MetaDescription)
-    VALUES ("eBay", "https://ebay.com", "Buy & sell electronics cars clothes collectibles & more on eBay the world's online marketplace.");
