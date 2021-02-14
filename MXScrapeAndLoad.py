@@ -37,18 +37,18 @@ csv_file_loc = 'newwebsites.csv'
 with open(csv_file_loc, 'r') as fz:
   reader = csv.reader(fz)
   your_list = list(reader)
-filename = 'SQL'
-f = open(filename + '.txt','w')
+#filename = 'SQL'
+#f = open(filename + '.txt','w')
 for p in your_list:
     format_str = """INSERT INTO Sites (Title, URL, MetaDescription)
     VALUES ("{Title}", "{URL}", "{MetaDescription}");\n"""
 
     sql_command = format_str.format(Title=p[0], URL=p[1], MetaDescription=p[2])
-    f.write(sql_command)
+    #f.write(sql_command)
     mycursor.execute(sql_command)
     mydb.commit()
 
-f.close()
+#f.close()
 
 ##Insert count
 rowcount = len(open(csv_file_loc).readlines())
