@@ -1,12 +1,2 @@
 INSERT INTO Sites (Title, URL, MetaDescription)
-    VALUES ("WebCrawler", "https://www.webcrawler.com", "Webcrawler Search Engine");
-INSERT INTO Sites (Title, URL, MetaDescription)
-    VALUES ("WebCrawler", "https://www.webcrawler.com", "Webcrawler Search Engine");
-INSERT INTO Sites (Title, URL, MetaDescription)
-    VALUES ("WebCrawler", "https://www.webcrawler.com", "Webcrawler Search Engine");
-INSERT INTO Sites (Title, URL, MetaDescription)
-    VALUES ("WebCrawler", "https://www.webcrawler.com", "Webcrawler Search Engine");
-INSERT INTO Sites (Title, URL, MetaDescription)
-    VALUES ("WebCrawler", "https://www.webcrawler.com", "Webcrawler Search Engine");
-INSERT INTO Sites (Title, URL, MetaDescription)
-    VALUES ("WebCrawler", "https://www.webcrawler.com", "Webcrawler Search Engine");
+    VALUES ("MTV", "https://mtv.com", "Music Television");

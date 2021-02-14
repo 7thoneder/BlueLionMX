@@ -2,7 +2,11 @@ import mysql.connector
 import os
 import subprocess
 import csv
+from bs4 import BeautifulSoup
+import requests
 
+
+##Database Config
 mydb = mysql.connector.connect(
   host="ec2-18-211-25-101.compute-1.amazonaws.com",
   user="bluelionmx",
@@ -12,6 +16,7 @@ mydb = mysql.connector.connect(
 
 mycursor = mydb.cursor()
 
+##Grab new sites and insert them into DB
 csv_file_loc = 'newwebsites.csv'
 with open(csv_file_loc, 'r') as fz:
   reader = csv.reader(fz)
@@ -29,8 +34,9 @@ for p in your_list:
 
 f.close()
 
-
-print(mycursor.rowcount, "record inserted.")
+rowcount = len(open(csv_file_loc).readlines())
+print(rowcount, "record(s) inserted")
+#print(mycursor.rowcount, "record inserted.")
 
 if (mydb.is_connected()):
            mycursor.close()
