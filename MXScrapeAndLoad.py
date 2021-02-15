@@ -8,7 +8,8 @@ import requests
 
 ##Scrape sites for tilte, url and metadesc
 sites = open('newwebsites.csv', 'w')
-urls = ['https://www.history.com']
+#urls = ['https://www.history.com']
+urls = open('Sites.csv', 'r')
 for url in urls:
     req = requests.get(url)
     req = req.content

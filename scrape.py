@@ -4,6 +4,7 @@ import requests
 
 
 sites = open('newwebsites.csv', 'w')
+#urls = open('Sites.csv', 'r')
 urls = ['https://www.history.com']
 for url in urls:
     req = requests.get(url)
