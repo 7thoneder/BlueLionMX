@@ -8,6 +8,9 @@ import subprocess
 sites = open('Sites.csv','r')
 
 for s in sites:
-	print(urllib2.urlopen(s).geturl())
-	print(urllib2.urlopen(s).getcode())
+	website = urllib2.urlopen(s).geturl()
+	code = str(urllib2.urlopen(s).getcode())
+	print('Website: ' + website + ' ---> ' + 'Code: ' + code)    
+
+	
 
