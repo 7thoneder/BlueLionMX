@@ -4,13 +4,17 @@ import subprocess
 import csv
 from bs4 import BeautifulSoup
 import requests
+import time
 
 
-##Scrape sites for tilte, url and metadesc
+#Create a file for the DB load
 sites = open('newwebsites.csv', 'w')
-#urls = ['https://www.history.com']
-urls = open('Sites.csv', 'r')
-for url in urls:
+
+#Opens website list and scrapes site Title, URL and MetaDescription
+urls = open('Sites.txt', 'r')
+websites = urls.read()
+site_list = websites.split()
+for url in site_list:
     req = requests.get(url)
     req = req.content
     bs = BeautifulSoup(req, 'lxml')
@@ -18,10 +22,11 @@ for url in urls:
     for meta in bs.find_all('meta'):
         if meta.get('name') == 'description':
             metadesc = meta.get('content')
-            sites.write(title + ',' + url + ',' + metadesc + '\n')
+            #Writes site data to file that will be used for DB load
+            sites.write(title + '\t' + url + '\t' + metadesc + '\n')
 
 sites.close
-
+time.sleep(5)
 
 ##Database Config
 mydb = mysql.connector.connect(
@@ -35,21 +40,17 @@ mycursor = mydb.cursor()
 
 ##Grab new sites and insert them into DB
 csv_file_loc = 'newwebsites.csv'
-with open(csv_file_loc, 'r') as fz:
-  reader = csv.reader(fz)
+with open(csv_file_loc, 'r') as sites:
+  reader = csv.reader(sites, delimiter="\t")
   your_list = list(reader)
-#filename = 'SQL'
-#f = open(filename + '.txt','w')
 for p in your_list:
-    format_str = """INSERT INTO Sites (Title, URL, MetaDescription)
+    format_str = """INSERT INTO WebSites (Title, URL, MetaDescription)
     VALUES ("{Title}", "{URL}", "{MetaDescription}");\n"""
 
     sql_command = format_str.format(Title=p[0], URL=p[1], MetaDescription=p[2])
-    #f.write(sql_command)
     mycursor.execute(sql_command)
     mydb.commit()
 
-#f.close()
 
 ##Insert count
 rowcount = len(open(csv_file_loc).readlines())
