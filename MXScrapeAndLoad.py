@@ -6,7 +6,7 @@ from bs4 import BeautifulSoup
 import requests
 import time
 
-
+print("Scraping sites...")
 #Create a file for the DB load
 sites = open('newwebsites.csv', 'w')
 
@@ -26,6 +26,7 @@ for url in site_list:
             sites.write(title + '\t' + url + '\t' + metadesc + '\n')
 
 sites.close
+print("Inserting records...")
 time.sleep(5)
 
 ##Database Config
@@ -53,12 +54,14 @@ for p in your_list:
 
 
 ##Insert count
-rowcount = len(open(csv_file_loc).readlines())
-print(rowcount)
-print("Record(s) inserted")
+rowcount = str(len(open(csv_file_loc).readlines()))
+print(rowcount + " Record(s) inserted")
+#print("Record(s) inserted")
 
 ##Close DB connection
 if (mydb.is_connected()):
            mycursor.close()
            mydb.close()
            print("MySQL connection is closed")
+
+print("DONE")
