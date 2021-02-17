@@ -29,7 +29,6 @@ for p in your_list:
     mycursor.execute(sql_command)
     mydb.commit()
 
-#f.close()
 
 ##Insert count
 rowcount = len(open(csv_file_loc).readlines())
