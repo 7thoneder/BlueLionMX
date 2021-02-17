@@ -19,16 +19,13 @@ mycursor = mydb.cursor()
 ##Grab new sites and insert them into DB
 csv_file_loc = 'newwebsites.csv'
 with open(csv_file_loc, 'r') as fz:
-  reader = csv.reader(fz)
+  reader = csv.reader(fz, delimiter="\t")
   your_list = list(reader)
-#filename = 'SQL'
-#f = open(filename + '.txt','w')
 for p in your_list:
     format_str = """INSERT INTO Sites (Title, URL, MetaDescription)
     VALUES ("{Title}", "{URL}", "{MetaDescription}");\n"""
 
     sql_command = format_str.format(Title=p[0], URL=p[1], MetaDescription=p[2])
-    #f.write(sql_command)
     mycursor.execute(sql_command)
     mydb.commit()
 

@@ -5,7 +5,7 @@ import subprocess
 
 
 
-sites = open('Sites.csv','r')
+sites = open('Sites.txt','r')
 
 for s in sites:
 	website = urllib2.urlopen(s).url

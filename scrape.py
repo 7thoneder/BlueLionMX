@@ -4,8 +4,8 @@ import requests
 
 
 sites = open('newwebsites.csv', 'w')
-urls = open('Sites.csv', 'r')
-#urls = ['https://www.history.com']
+#urls = open('Sites.txt', 'r')
+urls = ['https://www.history.com','https://www.cnbc.com']
 for url in urls:
     req = requests.get(url)
     req = req.content
@@ -14,6 +14,6 @@ for url in urls:
     for meta in bs.find_all('meta'):
         if meta.get('name') == 'description':
             metadesc = meta.get('content')
-            sites.write(title + ',' + url + ',' + metadesc + '\n')
+            sites.write(title + '\t' + url + '\t' + metadesc + '\n')
 
 sites.close
