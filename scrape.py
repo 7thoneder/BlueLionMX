@@ -4,9 +4,11 @@ import requests
 
 
 sites = open('newwebsites.csv', 'w')
-#urls = open('Sites.txt', 'r')
-urls = ['https://www.history.com','https://www.cnbc.com']
-for url in urls:
+urls = open('Sites.txt', 'r')
+websites = urls.read()
+site_list = websites.split()
+#urls = ['https://www.nhl.com','https://www.history.com','https://www.cnbc.com']
+for url in site_list:
     req = requests.get(url)
     req = req.content
     bs = BeautifulSoup(req, 'lxml')

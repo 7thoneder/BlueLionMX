@@ -22,7 +22,7 @@ with open(csv_file_loc, 'r') as fz:
   reader = csv.reader(fz, delimiter="\t")
   your_list = list(reader)
 for p in your_list:
-    format_str = """INSERT INTO Sites (Title, URL, MetaDescription)
+    format_str = """INSERT INTO WebSites (Title, URL, MetaDescription)
     VALUES ("{Title}", "{URL}", "{MetaDescription}");\n"""
 
     sql_command = format_str.format(Title=p[0], URL=p[1], MetaDescription=p[2])
