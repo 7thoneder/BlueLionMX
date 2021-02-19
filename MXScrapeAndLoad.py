@@ -31,7 +31,7 @@ time.sleep(5)
 
 ##Database Config
 mydb = mysql.connector.connect(
-  host="ec2-18-211-25-101.compute-1.amazonaws.com",
+  host="ec2-54-165-89-121.compute-1.amazonaws.com",
   user="bluelionmx",
   password="Idea4477&",
   database="BlueLionMX"
