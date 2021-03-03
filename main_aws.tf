@@ -13,8 +13,9 @@ provider "aws" {
 }
 
 resource "aws_instance" "BlueLion" {
-  ami           = "ami-0245ae71716af2644"
-  instance_type = "t2.micro"
+  ami                    = "ami-0245ae71716af2644"
+  instance_type          = "t2.micro"
+  vpc_security_group_ids = ["sg-0200064ed4848a126"]
 
   tags = {
     Name = var.instance_nametag
